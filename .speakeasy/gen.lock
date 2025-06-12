@@ -1,0 +1,201 @@
+lockVersion: 2.0.0
+id: 3895b7e8-3f79-429a-84e3-115378d101f9
+management:
+  docChecksum: 6cdd2a8b2ef9f649c376e18a0a1db828
+  docVersion: 1.0.0
+  speakeasyVersion: 1.561.0
+  generationVersion: 2.628.0
+  releaseVersion: 0.0.1
+  configChecksum: 52edf999a07c1c9509354f6d12b0d55c
+features:
+  php:
+    constsAndDefaults: 0.2.0
+    core: 3.8.6
+    globalServerURLs: 2.82.2
+    groups: 2.81.2
+    methodArguments: 0.1.0
+    nameOverrides: 2.81.2
+    nullables: 1.0.1
+    responseFormat: 0.1.0
+    retries: 0.1.0
+generatedFiles:
+  - .gitattributes
+  - USAGE.md
+  - composer.json
+  - docs/Models/Components/Check.md
+  - docs/Models/Components/CheckStatus.md
+  - docs/Models/Components/HealthCheck.md
+  - docs/Models/Components/Status.md
+  - docs/Models/Errors/ForbiddenException.md
+  - docs/Models/Errors/HealthCheckException.md
+  - docs/Models/Errors/InternalServerError.md
+  - docs/Models/Errors/NotAliveException.md
+  - docs/Models/Errors/NotReadyException.md
+  - docs/Models/Operations/BlockResource.md
+  - docs/Models/Operations/Format.md
+  - docs/Models/Operations/HealthResponse.md
+  - docs/Models/Operations/LiveResponse.md
+  - docs/Models/Operations/LiveResponseBody.md
+  - docs/Models/Operations/PrefersColorScheme.md
+  - docs/Models/Operations/PrefersReducedMotion.md
+  - docs/Models/Operations/ReadyResponse.md
+  - docs/Models/Operations/ReadyResponseBody.md
+  - docs/Models/Operations/ReadyStatus.md
+  - docs/Models/Operations/StatusAlive.md
+  - docs/Models/Operations/StatusNotAlive.md
+  - docs/Models/Operations/StatusNotReady.md
+  - docs/Models/Operations/TakeScreenshotRequest.md
+  - docs/Models/Operations/TakeScreenshotResponse.md
+  - docs/sdks/health/README.md
+  - docs/sdks/screenshothis/README.md
+  - docs/sdks/screenshots/README.md
+  - phpstan.neon
+  - phpunit.xml
+  - pint.json
+  - rector.php
+  - src/Health.php
+  - src/Hooks/AfterErrorContext.php
+  - src/Hooks/AfterErrorHook.php
+  - src/Hooks/AfterSuccessContext.php
+  - src/Hooks/AfterSuccessHook.php
+  - src/Hooks/BeforeRequestContext.php
+  - src/Hooks/BeforeRequestHook.php
+  - src/Hooks/Credentials.php
+  - src/Hooks/ErrorResponseContext.php
+  - src/Hooks/FailEarlyException.php
+  - src/Hooks/HookContext.php
+  - src/Hooks/Hooks.php
+  - src/Hooks/SDKHooks.php
+  - src/Hooks/SDKInitHook.php
+  - src/Hooks/Session.php
+  - src/Hooks/TokenResponse.php
+  - src/Models/Components/Check.php
+  - src/Models/Components/CheckStatus.php
+  - src/Models/Components/HealthCheck.php
+  - src/Models/Components/Status.php
+  - src/Models/Errors/APIException.php
+  - src/Models/Errors/ForbiddenException.php
+  - src/Models/Errors/ForbiddenExceptionThrowable.php
+  - src/Models/Errors/HealthCheckException.php
+  - src/Models/Errors/HealthCheckExceptionThrowable.php
+  - src/Models/Errors/InternalServerError.php
+  - src/Models/Errors/InternalServerErrorThrowable.php
+  - src/Models/Errors/NotAliveException.php
+  - src/Models/Errors/NotAliveExceptionThrowable.php
+  - src/Models/Errors/NotReadyException.php
+  - src/Models/Errors/NotReadyExceptionThrowable.php
+  - src/Models/Operations/BlockResource.php
+  - src/Models/Operations/Format.php
+  - src/Models/Operations/HealthResponse.php
+  - src/Models/Operations/LiveResponse.php
+  - src/Models/Operations/LiveResponseBody.php
+  - src/Models/Operations/PrefersColorScheme.php
+  - src/Models/Operations/PrefersReducedMotion.php
+  - src/Models/Operations/ReadyResponse.php
+  - src/Models/Operations/ReadyResponseBody.php
+  - src/Models/Operations/ReadyStatus.php
+  - src/Models/Operations/StatusAlive.php
+  - src/Models/Operations/StatusNotAlive.php
+  - src/Models/Operations/StatusNotReady.php
+  - src/Models/Operations/TakeScreenshotRequest.php
+  - src/Models/Operations/TakeScreenshotResponse.php
+  - src/SDKConfiguration.php
+  - src/Screenshothis.php
+  - src/ScreenshothisBuilder.php
+  - src/Screenshots.php
+  - src/Utils/BigDecimalHandler.php
+  - src/Utils/BigIntHandler.php
+  - src/Utils/DateHandler.php
+  - src/Utils/DateTimeHandler.php
+  - src/Utils/DefaultRequest.php
+  - src/Utils/DefaultResponse.php
+  - src/Utils/DefaultStream.php
+  - src/Utils/DefaultUri.php
+  - src/Utils/EnumHandler.php
+  - src/Utils/FormMetadata.php
+  - src/Utils/Headers.php
+  - src/Utils/JSON.php
+  - src/Utils/MixedJSONHandler.php
+  - src/Utils/MultipartMetadata.php
+  - src/Utils/Options.php
+  - src/Utils/ParamsMetadata.php
+  - src/Utils/PathParameters.php
+  - src/Utils/PhpDocTypeParser.php
+  - src/Utils/QueryParameters.php
+  - src/Utils/RequestBodies.php
+  - src/Utils/RequestMetadata.php
+  - src/Utils/Retry/PermanentError.php
+  - src/Utils/Retry/RetryConfig.php
+  - src/Utils/Retry/RetryConfigBackoff.php
+  - src/Utils/Retry/RetryConfigNone.php
+  - src/Utils/Retry/RetryStrategy.php
+  - src/Utils/Retry/RetryUtils.php
+  - src/Utils/Retry/TemporaryError.php
+  - src/Utils/Security.php
+  - src/Utils/SecurityClient.php
+  - src/Utils/SecurityMetadata.php
+  - src/Utils/ServerDetails.php
+  - src/Utils/SpeakeasyMetadata.php
+  - src/Utils/UnionHandler.php
+  - src/Utils/Utils.php
+examples:
+  takeScreenshot:
+    speakeasy-default-take-screenshot:
+      parameters:
+        query:
+          api_key: "sk_live_abcdef1234567890abcdef1234567890"
+          url: "https://example.com"
+          selector: ".main-content"
+          width: 1920
+          height: 1080
+          is_mobile: false
+          is_landscape: false
+          has_touch: false
+          device_scale_factor: 1
+          format: "jpeg"
+          quality: 80
+          block_ads: false
+          block_cookie_banners: false
+          block_trackers: false
+          block_requests: "*.doubleclick.net\n*.googletagmanager.com\n*/analytics/*"
+          block_resources: ["script", "stylesheet", "font"]
+          prefers_color_scheme: "light"
+          prefers_reduced_motion: "no-preference"
+          is_cached: false
+          cache_ttl: 3600
+          cache_key: "homepage-desktop-light"
+          headers: "User-Agent: MyBot/1.0\nAuthorization: Bearer token123\nX-Custom-Header: value"
+          cookies: "session_id=abc123; Domain=example.com; Path=/; Secure\nuser_pref=dark_mode; Max-Age=3600"
+          bypass_csp: false
+      responses:
+        "200":
+          image/jpeg: "<binary JPEG image data>"
+          image/png: "<binary PNG image data>"
+          image/webp: "<binary WebP image data>"
+        "403":
+          application/json: {"error": "<value>", "requestId": "<id>"}
+        "500":
+          application/json: {"requestId": "<id>", "message": "<value>", "code": "<value>"}
+  health:
+    speakeasy-default-health:
+      responses:
+        "200":
+          application/json: {"status": "healthy", "timestamp": "2024-01-01T00:00:00.000Z", "uptime": 3600, "checks": [{"name": "database", "status": "pass", "duration": 10}], "version": "1.0.0"}
+        "503":
+          application/json: {"status": "healthy", "timestamp": "2024-01-01T00:00:00.000Z", "uptime": 3600, "checks": [{"name": "database", "status": "pass", "duration": 10}], "version": "1.0.0"}
+  ready:
+    speakeasy-default-ready:
+      responses:
+        "200":
+          application/json: {"status": "ready", "timestamp": "<value>"}
+        "503":
+          application/json: {"status": "not ready", "timestamp": "<value>", "error": "<value>"}
+  live:
+    speakeasy-default-live:
+      responses:
+        "200":
+          application/json: {"status": "alive", "timestamp": "<value>"}
+        "503":
+          application/json: {"status": "not alive", "timestamp": "<value>", "error": "<value>"}
+examplesVersion: 1.0.2
+generatedTests: {}

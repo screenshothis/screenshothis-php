@@ -1,0 +1,35 @@
+speakeasyVersion: 1.561.0
+sources:
+    screenshothis-OAS:
+        sourceNamespace: screenshothis-api
+        sourceRevisionDigest: sha256:eabc582ad10512d28531a91c6569a72aab46c94459a3e36d45cba4a311b67cc1
+        sourceBlobDigest: sha256:77a3316cfdbedfa157a50046f7d4ecd30df063e5e92518ade901b46b39a13633
+        tags:
+            - latest
+targets:
+    screenshothis:
+        source: screenshothis-OAS
+        sourceNamespace: screenshothis-api
+        sourceRevisionDigest: sha256:eabc582ad10512d28531a91c6569a72aab46c94459a3e36d45cba4a311b67cc1
+        sourceBlobDigest: sha256:77a3316cfdbedfa157a50046f7d4ecd30df063e5e92518ade901b46b39a13633
+        codeSamplesNamespace: screenshothis-oas-php-code-samples
+        codeSamplesRevisionDigest: sha256:37f386cbbc78706685411f10039e020ede8618165f32e441e795630e6bcd6ae7
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        screenshothis-OAS:
+            inputs:
+                - location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-api:main
+            registry:
+                location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-oas
+    targets:
+        screenshothis:
+            target: php
+            source: screenshothis-OAS
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-oas-php-code-samples
+                labelOverride:
+                    fixedValue: Php (SDK)
+                blocking: false
