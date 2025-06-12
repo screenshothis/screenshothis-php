@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 3895b7e8-3f79-429a-84e3-115378d101f9
 management:
-  docChecksum: 0702f7c31fbe387b53efbde5cbec2e4a
+  docChecksum: 60f681ca3e66774f72a2f147cda19ed7
   docVersion: 1.0.0
   speakeasyVersion: 1.561.0
   generationVersion: 2.628.0
-  releaseVersion: 0.1.0
-  configChecksum: 5030307ce81741b594362b1c1140fccb
+  releaseVersion: 0.1.1
+  configChecksum: 1fb421fd103f4fbb68a0a3ec00e63870
   repoURL: https://github.com/screenshothis/screenshothis-php.git
   installationURL: https://github.com/screenshothis/screenshothis-php
   published: true
