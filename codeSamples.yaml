@@ -1,0 +1,116 @@
+overlay: 1.0.0
+info:
+  title: CodeSamples overlay for php target
+  version: 0.0.0
+actions:
+  - target: $["paths"]["/health"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: PHP (SDK)
+          source: |-
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use Screenshothis\Screenshothis;
+
+            $sdk = Screenshothis\Screenshothis::builder()->build();
+
+
+
+            $response = $sdk->health(
+
+            );
+
+            if ($response->healthCheck !== null) {
+                // handle response
+            }
+  - target: $["paths"]["/health/live"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: PHP (SDK)
+          source: |-
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use Screenshothis\Screenshothis;
+
+            $sdk = Screenshothis\Screenshothis::builder()->build();
+
+
+
+            $response = $sdk->live(
+
+            );
+
+            if ($response->object !== null) {
+                // handle response
+            }
+  - target: $["paths"]["/health/ready"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: PHP (SDK)
+          source: |-
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use Screenshothis\Screenshothis;
+
+            $sdk = Screenshothis\Screenshothis::builder()->build();
+
+
+
+            $response = $sdk->ready(
+
+            );
+
+            if ($response->object !== null) {
+                // handle response
+            }
+  - target: $["paths"]["/v1/screenshots/take"]["get"]
+    update:
+      x-codeSamples:
+        - lang: php
+          label: PHP (SDK)
+          source: |-
+            declare(strict_types=1);
+
+            require 'vendor/autoload.php';
+
+            use Screenshothis\Screenshothis;
+            use Screenshothis\Screenshothis\Models\Operations;
+
+            $sdk = Screenshothis\Screenshothis::builder()->build();
+
+            $request = new Operations\TakeScreenshotRequest(
+                apiKey: 'sk_live_abcdef1234567890abcdef1234567890',
+                url: 'https://example.com',
+                selector: '.main-content',
+                blockRequests: '*.doubleclick.net\n' .
+                '*.googletagmanager.com\n' .
+                '*/analytics/*',
+                blockResources: [
+                    Operations\BlockResource::Script,
+                    Operations\BlockResource::Stylesheet,
+                    Operations\BlockResource::Font,
+                ],
+                cacheKey: 'homepage-desktop-light',
+                headers: 'User-Agent: MyBot/1.0\n' .
+                'Authorization: Bearer token123\n' .
+                'X-Custom-Header: value',
+                cookies: 'session_id=abc123; Domain=example.com; Path=/; Secure\n' .
+                'user_pref=dark_mode; Max-Age=3600',
+            );
+
+            $response = $sdk->takeScreenshot(
+                request: $request
+            );
+
+            if ($response->twoHundredImageJpegBytes !== null) {
+                // handle response
+            }

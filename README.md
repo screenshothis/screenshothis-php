@@ -22,7 +22,6 @@ Screenshothis API: API designed to take screenshots of websites
   * [SDK Installation](#sdk-installation)
   * [SDK Example Usage](#sdk-example-usage)
   * [Available Resources and Operations](#available-resources-and-operations)
-  * [Retries](#retries)
   * [Error Handling](#error-handling)
   * [Server Selection](#server-selection)
 * [Development](#development)
@@ -36,10 +35,9 @@ Screenshothis API: API designed to take screenshots of websites
 
 The SDK relies on [Composer](https://getcomposer.org/) to manage its dependencies.
 
-To install the SDK run the following command:
-
+To install the SDK and add it as a dependency to an existing `composer.json` file:
 ```bash
-composer require screenshothis/php
+composer require "screenshothis/php"
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -78,7 +76,7 @@ $request = new Operations\TakeScreenshotRequest(
     'user_pref=dark_mode; Max-Age=3600',
 );
 
-$response = $sdk->screenshots->take(
+$response = $sdk->takeScreenshot(
     request: $request
 );
 
@@ -94,125 +92,15 @@ if ($response->twoHundredImageJpegBytes !== null) {
 <details open>
 <summary>Available methods</summary>
 
-### [health](docs/sdks/health/README.md)
+### [Screenshothis SDK](docs/sdks/screenshothis/README.md)
 
-* [get](docs/sdks/health/README.md#get) - Comprehensive health check
-* [getReady](docs/sdks/health/README.md#getready) - Readiness probe
-* [getLive](docs/sdks/health/README.md#getlive) - Liveness probe
-
-
-### [screenshots](docs/sdks/screenshots/README.md)
-
-* [take](docs/sdks/screenshots/README.md#take) - Generate optimized website screenshot
+* [takeScreenshot](docs/sdks/screenshothis/README.md#takescreenshot) - Generate optimized website screenshot
+* [health](docs/sdks/screenshothis/README.md#health) - Comprehensive health check
+* [ready](docs/sdks/screenshothis/README.md#ready) - Readiness probe
+* [live](docs/sdks/screenshothis/README.md#live) - Liveness probe
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
-
-<!-- Start Retries [retries] -->
-## Retries
-
-Some of the endpoints in this SDK support retries. If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API. However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
-
-To change the default retry strategy for a single API call, simply provide an `Options` object built with a `RetryConfig` object to the call:
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use Screenshothis\Screenshothis;
-use Screenshothis\Screenshothis\Models\Operations;
-use Screenshothis\Screenshothis\Utils\Retry;
-
-$sdk = Screenshothis\Screenshothis::builder()->build();
-
-$request = new Operations\TakeScreenshotRequest(
-    apiKey: 'sk_live_abcdef1234567890abcdef1234567890',
-    url: 'https://example.com',
-    selector: '.main-content',
-    blockRequests: '*.doubleclick.net\n' .
-    '*.googletagmanager.com\n' .
-    '*/analytics/*',
-    blockResources: [
-        Operations\BlockResource::Script,
-        Operations\BlockResource::Stylesheet,
-        Operations\BlockResource::Font,
-    ],
-    cacheKey: 'homepage-desktop-light',
-    headers: 'User-Agent: MyBot/1.0\n' .
-    'Authorization: Bearer token123\n' .
-    'X-Custom-Header: value',
-    cookies: 'session_id=abc123; Domain=example.com; Path=/; Secure\n' .
-    'user_pref=dark_mode; Max-Age=3600',
-);
-
-$response = $sdk->screenshots->take(
-    request: $request,
-    options: Utils\Options->builder()->setRetryConfig(
-        new Retry\RetryConfigBackoff(
-            initialInterval: 1,
-            maxInterval:     50,
-            exponent:        1.1,
-            maxElapsedTime:  100,
-            retryConnectionErrors: false,
-        ))->build()
-);
-
-if ($response->twoHundredImageJpegBytes !== null) {
-    // handle response
-}
-```
-
-If you'd like to override the default retry strategy for all operations that support retries, you can pass a `RetryConfig` object to the `SDKBuilder->setRetryConfig` function when initializing the SDK:
-```php
-declare(strict_types=1);
-
-require 'vendor/autoload.php';
-
-use Screenshothis\Screenshothis;
-use Screenshothis\Screenshothis\Models\Operations;
-use Screenshothis\Screenshothis\Utils\Retry;
-
-$sdk = Screenshothis\Screenshothis::builder()
-    ->setRetryConfig(
-        new Retry\RetryConfigBackoff(
-            initialInterval: 1,
-            maxInterval:     50,
-            exponent:        1.1,
-            maxElapsedTime:  100,
-            retryConnectionErrors: false,
-        )
-  )
-    ->build();
-
-$request = new Operations\TakeScreenshotRequest(
-    apiKey: 'sk_live_abcdef1234567890abcdef1234567890',
-    url: 'https://example.com',
-    selector: '.main-content',
-    blockRequests: '*.doubleclick.net\n' .
-    '*.googletagmanager.com\n' .
-    '*/analytics/*',
-    blockResources: [
-        Operations\BlockResource::Script,
-        Operations\BlockResource::Stylesheet,
-        Operations\BlockResource::Font,
-    ],
-    cacheKey: 'homepage-desktop-light',
-    headers: 'User-Agent: MyBot/1.0\n' .
-    'Authorization: Bearer token123\n' .
-    'X-Custom-Header: value',
-    cookies: 'session_id=abc123; Domain=example.com; Path=/; Secure\n' .
-    'user_pref=dark_mode; Max-Age=3600',
-);
-
-$response = $sdk->screenshots->take(
-    request: $request
-);
-
-if ($response->twoHundredImageJpegBytes !== null) {
-    // handle response
-}
-```
-<!-- End Retries [retries] -->
 
 <!-- Start Error Handling [errors] -->
 ## Error Handling
@@ -228,7 +116,7 @@ By default an API error will raise a `Errors\APIException` exception, which has 
 | `$rawResponse` | *?\Psr\Http\Message\ResponseInterface*  | The raw HTTP response |
 | `$body`        | *string*                                | The response content  |
 
-When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `take` method throws the following exceptions:
+When custom error responses are specified for an operation, the SDK may also throw their associated exception. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `takeScreenshot` method throws the following exceptions:
 
 | Error Type                 | Status Code | Content Type     |
 | -------------------------- | ----------- | ---------------- |
@@ -270,7 +158,7 @@ try {
         'user_pref=dark_mode; Max-Age=3600',
     );
 
-    $response = $sdk->screenshots->take(
+    $response = $sdk->takeScreenshot(
         request: $request
     );
 
@@ -328,7 +216,7 @@ $request = new Operations\TakeScreenshotRequest(
     'user_pref=dark_mode; Max-Age=3600',
 );
 
-$response = $sdk->screenshots->take(
+$response = $sdk->takeScreenshot(
     request: $request
 );
 

@@ -1,23 +1,23 @@
 lockVersion: 2.0.0
 id: 3895b7e8-3f79-429a-84e3-115378d101f9
 management:
-  docChecksum: 6cdd2a8b2ef9f649c376e18a0a1db828
+  docChecksum: 0702f7c31fbe387b53efbde5cbec2e4a
   docVersion: 1.0.0
   speakeasyVersion: 1.561.0
   generationVersion: 2.628.0
-  releaseVersion: 0.0.1
-  configChecksum: 52edf999a07c1c9509354f6d12b0d55c
+  releaseVersion: 0.1.0
+  configChecksum: 5030307ce81741b594362b1c1140fccb
+  repoURL: https://github.com/screenshothis/screenshothis-php.git
+  installationURL: https://github.com/screenshothis/screenshothis-php
+  published: true
 features:
   php:
     constsAndDefaults: 0.2.0
     core: 3.8.6
     globalServerURLs: 2.82.2
-    groups: 2.81.2
     methodArguments: 0.1.0
-    nameOverrides: 2.81.2
     nullables: 1.0.1
     responseFormat: 0.1.0
-    retries: 0.1.0
 generatedFiles:
   - .gitattributes
   - USAGE.md
@@ -46,14 +46,11 @@ generatedFiles:
   - docs/Models/Operations/StatusNotReady.md
   - docs/Models/Operations/TakeScreenshotRequest.md
   - docs/Models/Operations/TakeScreenshotResponse.md
-  - docs/sdks/health/README.md
   - docs/sdks/screenshothis/README.md
-  - docs/sdks/screenshots/README.md
   - phpstan.neon
   - phpunit.xml
   - pint.json
   - rector.php
-  - src/Health.php
   - src/Hooks/AfterErrorContext.php
   - src/Hooks/AfterErrorHook.php
   - src/Hooks/AfterSuccessContext.php
@@ -102,7 +99,6 @@ generatedFiles:
   - src/SDKConfiguration.php
   - src/Screenshothis.php
   - src/ScreenshothisBuilder.php
-  - src/Screenshots.php
   - src/Utils/BigDecimalHandler.php
   - src/Utils/BigIntHandler.php
   - src/Utils/DateHandler.php
@@ -180,9 +176,9 @@ examples:
     speakeasy-default-health:
       responses:
         "200":
-          application/json: {"status": "healthy", "timestamp": "2024-01-01T00:00:00.000Z", "uptime": 3600, "checks": [{"name": "database", "status": "pass", "duration": 10}], "version": "1.0.0"}
+          application/json: {"status": "healthy", "timestamp": "2024-01-01T00:00:00.000Z", "uptime": 3600, "checks": [{"name": "database", "status": "pass", "duration": 12}, {"name": "storage", "status": "pass", "duration": 25}, {"name": "queue", "status": "pass", "duration": 8, "details": {"waiting": 2, "active": 1, "completed": 1543, "failed": 0, "workerRunning": true}}, {"name": "s3", "status": "pass", "duration": 156}], "version": "1.0.0"}
         "503":
-          application/json: {"status": "healthy", "timestamp": "2024-01-01T00:00:00.000Z", "uptime": 3600, "checks": [{"name": "database", "status": "pass", "duration": 10}], "version": "1.0.0"}
+          application/json: {"status": "healthy", "timestamp": "2024-01-01T00:00:00.000Z", "uptime": 3600, "checks": [{"name": "database", "status": "pass", "duration": 12}, {"name": "storage", "status": "pass", "duration": 25}, {"name": "queue", "status": "pass", "duration": 8, "details": {"waiting": 2, "active": 1, "completed": 1543, "failed": 0, "workerRunning": true}}, {"name": "s3", "status": "pass", "duration": 156}], "version": "1.0.0"}
   ready:
     speakeasy-default-ready:
       responses:
