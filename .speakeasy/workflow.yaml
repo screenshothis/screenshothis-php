@@ -9,7 +9,7 @@ sources:
 targets:
   screenshothis:
     target: php
-    source: Screenshothis-OAS
+    source: Screenshothis API
     publish:
       packagist:
         username: $packagist_username
