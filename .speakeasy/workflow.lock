@@ -1,5 +1,13 @@
 speakeasyVersion: 1.561.0
 sources:
+    Screenshothis-OAS:
+        sourceNamespace: screenshothis-oas
+        sourceRevisionDigest: sha256:a21425bef0aecf28bcb08edf4200c2cd816fbdc23c472d2571d22a5784012cd2
+        sourceBlobDigest: sha256:957dc7853e636c0934f2a30b8fc009e98daed31eaafc03c19bbfb9415fb7ffba
+        tags:
+            - latest
+            - speakeasy-sdk-regen-1749756318
+            - 1.0.0
     screenshothis-OAS:
         sourceNamespace: screenshothis-api
         sourceRevisionDigest: sha256:eabc582ad10512d28531a91c6569a72aab46c94459a3e36d45cba4a311b67cc1
@@ -8,28 +16,33 @@ sources:
             - latest
 targets:
     screenshothis:
-        source: screenshothis-OAS
-        sourceNamespace: screenshothis-api
-        sourceRevisionDigest: sha256:eabc582ad10512d28531a91c6569a72aab46c94459a3e36d45cba4a311b67cc1
-        sourceBlobDigest: sha256:77a3316cfdbedfa157a50046f7d4ecd30df063e5e92518ade901b46b39a13633
+        source: Screenshothis-OAS
+        sourceNamespace: screenshothis-oas
+        sourceRevisionDigest: sha256:a21425bef0aecf28bcb08edf4200c2cd816fbdc23c472d2571d22a5784012cd2
+        sourceBlobDigest: sha256:957dc7853e636c0934f2a30b8fc009e98daed31eaafc03c19bbfb9415fb7ffba
         codeSamplesNamespace: screenshothis-oas-php-code-samples
-        codeSamplesRevisionDigest: sha256:37f386cbbc78706685411f10039e020ede8618165f32e441e795630e6bcd6ae7
+        codeSamplesRevisionDigest: sha256:b4fdb49efe9050bd242daee5ec80cf5fb64ef55a7af14e83331671a4f501b81c
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
     sources:
-        screenshothis-OAS:
+        Screenshothis-OAS:
             inputs:
-                - location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-api:main
+                - location: https://api.screenshothis.com/openapi
             registry:
                 location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-oas
     targets:
         screenshothis:
             target: php
-            source: screenshothis-OAS
+            source: Screenshothis-OAS
+            publish:
+                packagist:
+                    username: $packagist_username
+                    token: $packagist_token
             codeSamples:
+                output: codeSamples.yaml
                 registry:
                     location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-oas-php-code-samples
                 labelOverride:
-                    fixedValue: Php (SDK)
+                    fixedValue: PHP (SDK)
                 blocking: false

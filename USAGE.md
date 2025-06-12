@@ -29,7 +29,7 @@ $request = new Operations\TakeScreenshotRequest(
     'user_pref=dark_mode; Max-Age=3600',
 );
 
-$response = $sdk->screenshots->take(
+$response = $sdk->takeScreenshot(
     request: $request
 );
 
