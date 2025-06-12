@@ -2,11 +2,11 @@ speakeasyVersion: 1.561.0
 sources:
     Screenshothis-OAS:
         sourceNamespace: screenshothis-oas
-        sourceRevisionDigest: sha256:a21425bef0aecf28bcb08edf4200c2cd816fbdc23c472d2571d22a5784012cd2
-        sourceBlobDigest: sha256:957dc7853e636c0934f2a30b8fc009e98daed31eaafc03c19bbfb9415fb7ffba
+        sourceRevisionDigest: sha256:3eaeeb21532e65554103c325f9e3232fa6c413c52d39969682b98efa78296086
+        sourceBlobDigest: sha256:18737c0f3c083d84946e0096ea223f8d502f97402b1b8ebfd85f13833989783d
         tags:
             - latest
-            - speakeasy-sdk-regen-1749756318
+            - speakeasy-sdk-regen-1749759520
             - 1.0.0
     screenshothis-OAS:
         sourceNamespace: screenshothis-api
@@ -18,10 +18,10 @@ targets:
     screenshothis:
         source: Screenshothis-OAS
         sourceNamespace: screenshothis-oas
-        sourceRevisionDigest: sha256:a21425bef0aecf28bcb08edf4200c2cd816fbdc23c472d2571d22a5784012cd2
-        sourceBlobDigest: sha256:957dc7853e636c0934f2a30b8fc009e98daed31eaafc03c19bbfb9415fb7ffba
+        sourceRevisionDigest: sha256:3eaeeb21532e65554103c325f9e3232fa6c413c52d39969682b98efa78296086
+        sourceBlobDigest: sha256:18737c0f3c083d84946e0096ea223f8d502f97402b1b8ebfd85f13833989783d
         codeSamplesNamespace: screenshothis-oas-php-code-samples
-        codeSamplesRevisionDigest: sha256:b4fdb49efe9050bd242daee5ec80cf5fb64ef55a7af14e83331671a4f501b81c
+        codeSamplesRevisionDigest: sha256:a48dbdc667d78cbdba83799c5fd86a0c16d2bf743d9f59778bde4f15de7df6db
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
