@@ -1,7 +1,7 @@
 workflowVersion: 1.0.0
 speakeasyVersion: latest
 sources:
-  screenshothis-OAS:
+  Screenshothis-OAS:
     inputs:
       - location: https://api.screenshothis.com/openapi
     registry:
@@ -9,7 +9,7 @@ sources:
 targets:
   screenshothis:
     target: php
-    source: Screenshothis API
+    source: Screenshothis-OAS
     publish:
       packagist:
         username: $packagist_username
@@ -19,5 +19,5 @@ targets:
       registry:
         location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-oas-php-code-samples
       labelOverride:
-        fixedValue: Php (SDK)
+        fixedValue: PHP (SDK)
       blocking: false
