@@ -1,22 +1,23 @@
 workflowVersion: 1.0.0
 speakeasyVersion: latest
 sources:
-    screenshothis-OAS:
-        inputs:
-            - location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-api:main
-        registry:
-            location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-oas
+  screenshothis-OAS:
+    inputs:
+      - location: https://api.screenshothis.com/openapi
+    registry:
+      location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-oas
 targets:
-    screenshothis:
-        target: php
-        source: screenshothis-OAS
-        publish:
-            packagist:
-                username: $packagist_username
-                token: $packagist_token
-        codeSamples:
-            registry:
-                location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-oas-php-code-samples
-            labelOverride:
-                fixedValue: Php (SDK)
-            blocking: false
+  screenshothis:
+    target: php
+    source: Screenshothis-OAS
+    publish:
+      packagist:
+        username: $packagist_username
+        token: $packagist_token
+    codeSamples:
+      output: codeSamples.yaml
+      registry:
+        location: registry.speakeasyapi.dev/danestves-llc/screenshothis/screenshothis-oas-php-code-samples
+      labelOverride:
+        fixedValue: Php (SDK)
+      blocking: false
