@@ -3,7 +3,6 @@ generation:
   devContainers:
     enabled: true
     schemaPath: https://api.screenshothis.com/openapi
-  version: 0.1.1
   sdkClassName: Screenshothis
   maintainOpenAPIOrder: true
   usageSnippets:
@@ -21,8 +20,9 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
   sdkHooksConfigAccess: true
-php:
   version: 0.1.1
+php:
+  version: 0.1.2
   additionalDependencies:
     autoload: {}
     autoload-dev: {}
