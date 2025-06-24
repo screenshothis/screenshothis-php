@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 3895b7e8-3f79-429a-84e3-115378d101f9
 management:
-  docChecksum: 60f681ca3e66774f72a2f147cda19ed7
+  docChecksum: 817ff10f8807e610ab3a4828f1c2ad56
   docVersion: 1.0.0
-  speakeasyVersion: 1.561.0
-  generationVersion: 2.628.0
-  releaseVersion: 0.1.1
-  configChecksum: 1fb421fd103f4fbb68a0a3ec00e63870
+  speakeasyVersion: 1.568.1
+  generationVersion: 2.634.1
+  releaseVersion: 0.1.2
+  configChecksum: 8073535b5664f67cac35ca5ee7c96d3b
   repoURL: https://github.com/screenshothis/screenshothis-php.git
   installationURL: https://github.com/screenshothis/screenshothis-php
   published: true
@@ -163,6 +163,10 @@ examples:
           headers: "User-Agent: MyBot/1.0\nAuthorization: Bearer token123\nX-Custom-Header: value"
           cookies: "session_id=abc123; Domain=example.com; Path=/; Secure\nuser_pref=dark_mode; Max-Age=3600"
           bypass_csp: false
+          full_page: false
+          full_page_scroll: true
+          full_page_scroll_duration: 400
+          user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
       responses:
         "200":
           image/jpeg: "<binary JPEG image data>"

@@ -49,6 +49,13 @@ class TakeScreenshotRequest
 
     /**
      *
+     * @var ?string $userAgent
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=user_agent')]
+    public ?string $userAgent = null;
+
+    /**
+     *
      * @var ?string $headers
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=headers')]
@@ -67,58 +74,6 @@ class TakeScreenshotRequest
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=selector')]
     public ?string $selector = null;
-
-    /**
-     * Output image format. JPEG offers smaller file sizes, PNG supports transparency, WebP provides modern compression.
-     *
-     * @var ?Format $format
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=format')]
-    public ?Format $format = null;
-
-    /**
-     *
-     * @var ?float $quality
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=quality')]
-    public ?float $quality = null;
-
-    /**
-     * Set the preferred color scheme for websites that support dark/light mode theming
-     *
-     * @var ?PrefersColorScheme $prefersColorScheme
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=prefers_color_scheme')]
-    public ?PrefersColorScheme $prefersColorScheme = null;
-
-    /**
-     * Accessibility setting to reduce animations and transitions for motion-sensitive users
-     *
-     * @var ?PrefersReducedMotion $prefersReducedMotion
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=prefers_reduced_motion')]
-    public ?PrefersReducedMotion $prefersReducedMotion = null;
-
-    /**
-     *
-     * @var ?float $cacheTtl
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=cache_ttl')]
-    public ?float $cacheTtl = null;
-
-    /**
-     *
-     * @var ?float $width
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=width')]
-    public ?float $width = null;
-
-    /**
-     *
-     * @var ?float $height
-     */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=height')]
-    public ?float $height = null;
 
     /**
      *
@@ -143,10 +98,32 @@ class TakeScreenshotRequest
 
     /**
      *
-     * @var ?float $deviceScaleFactor
+     * @var ?bool $fullPage
      */
-    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=device_scale_factor')]
-    public ?float $deviceScaleFactor = null;
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=full_page')]
+    public ?bool $fullPage = null;
+
+    /**
+     *
+     * @var ?bool $fullPageScroll
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=full_page_scroll')]
+    public ?bool $fullPageScroll = null;
+
+    /**
+     * Output image format. JPEG offers smaller file sizes, PNG supports transparency, WebP provides modern compression.
+     *
+     * @var ?Format $format
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=format')]
+    public ?Format $format = null;
+
+    /**
+     *
+     * @var ?float $quality
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=quality')]
+    public ?float $quality = null;
 
     /**
      *
@@ -170,11 +147,34 @@ class TakeScreenshotRequest
     public ?bool $blockTrackers = null;
 
     /**
+     * Set the preferred color scheme for websites that support dark/light mode theming
+     *
+     * @var ?PrefersColorScheme $prefersColorScheme
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=prefers_color_scheme')]
+    public ?PrefersColorScheme $prefersColorScheme = null;
+
+    /**
+     * Accessibility setting to reduce animations and transitions for motion-sensitive users
+     *
+     * @var ?PrefersReducedMotion $prefersReducedMotion
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=prefers_reduced_motion')]
+    public ?PrefersReducedMotion $prefersReducedMotion = null;
+
+    /**
      *
      * @var ?bool $isCached
      */
     #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=is_cached')]
     public ?bool $isCached = null;
+
+    /**
+     *
+     * @var ?float $cacheTtl
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=cache_ttl')]
+    public ?float $cacheTtl = null;
 
     /**
      *
@@ -184,57 +184,93 @@ class TakeScreenshotRequest
     public ?bool $bypassCsp = null;
 
     /**
+     *
+     * @var ?float $width
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=width')]
+    public ?float $width = null;
+
+    /**
+     *
+     * @var ?float $height
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=height')]
+    public ?float $height = null;
+
+    /**
+     *
+     * @var ?float $deviceScaleFactor
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=device_scale_factor')]
+    public ?float $deviceScaleFactor = null;
+
+    /**
+     *
+     * @var ?float $fullPageScrollDuration
+     */
+    #[SpeakeasyMetadata('queryParam:style=form,explode=true,name=full_page_scroll_duration')]
+    public ?float $fullPageScrollDuration = null;
+
+    /**
      * @param  string  $apiKey
      * @param  string  $url
+     * @param  ?bool  $isMobile
+     * @param  ?bool  $isLandscape
+     * @param  ?bool  $hasTouch
+     * @param  ?bool  $fullPage
+     * @param  ?bool  $fullPageScroll
      * @param  ?Format  $format
      * @param  ?float  $quality
+     * @param  ?bool  $blockAds
+     * @param  ?bool  $blockCookieBanners
+     * @param  ?bool  $blockTrackers
      * @param  ?string  $blockRequests
      * @param  ?array<BlockResource>  $blockResources
      * @param  ?PrefersColorScheme  $prefersColorScheme
      * @param  ?PrefersReducedMotion  $prefersReducedMotion
+     * @param  ?bool  $isCached
      * @param  ?float  $cacheTtl
      * @param  ?string  $cacheKey
+     * @param  ?string  $userAgent
      * @param  ?string  $headers
      * @param  ?string  $cookies
+     * @param  ?bool  $bypassCsp
      * @param  ?string  $selector
      * @param  ?float  $width
      * @param  ?float  $height
-     * @param  ?bool  $isMobile
-     * @param  ?bool  $isLandscape
-     * @param  ?bool  $hasTouch
      * @param  ?float  $deviceScaleFactor
-     * @param  ?bool  $blockAds
-     * @param  ?bool  $blockCookieBanners
-     * @param  ?bool  $blockTrackers
-     * @param  ?bool  $isCached
-     * @param  ?bool  $bypassCsp
+     * @param  ?float  $fullPageScrollDuration
      * @phpstan-pure
      */
-    public function __construct(string $apiKey, string $url, ?string $blockRequests = null, ?array $blockResources = null, ?string $cacheKey = null, ?string $cookies = null, ?string $selector = null, ?Format $format = Format::Jpeg, ?float $quality = 80, ?PrefersColorScheme $prefersColorScheme = PrefersColorScheme::Light, ?PrefersReducedMotion $prefersReducedMotion = PrefersReducedMotion::NoPreference, ?float $cacheTtl = 3600, ?float $width = 1920, ?float $height = 1080, ?bool $isMobile = false, ?bool $isLandscape = false, ?bool $hasTouch = false, ?float $deviceScaleFactor = 1, ?bool $blockAds = false, ?bool $blockCookieBanners = false, ?bool $blockTrackers = false, ?bool $isCached = false, ?bool $bypassCsp = false, ?string $headers = null)
+    public function __construct(string $apiKey, string $url, ?string $blockRequests = null, ?array $blockResources = null, ?string $cacheKey = null, ?string $userAgent = null, ?string $cookies = null, ?string $selector = null, ?bool $isMobile = false, ?bool $isLandscape = false, ?bool $hasTouch = false, ?bool $fullPage = false, ?bool $fullPageScroll = true, ?Format $format = Format::Jpeg, ?float $quality = 80, ?bool $blockAds = false, ?bool $blockCookieBanners = false, ?bool $blockTrackers = false, ?PrefersColorScheme $prefersColorScheme = PrefersColorScheme::Light, ?PrefersReducedMotion $prefersReducedMotion = PrefersReducedMotion::NoPreference, ?bool $isCached = false, ?float $cacheTtl = 3600, ?bool $bypassCsp = false, ?float $width = 1920, ?float $height = 1080, ?float $deviceScaleFactor = 1, ?float $fullPageScrollDuration = 400, ?string $headers = null)
     {
         $this->apiKey = $apiKey;
         $this->url = $url;
         $this->blockRequests = $blockRequests;
         $this->blockResources = $blockResources;
         $this->cacheKey = $cacheKey;
+        $this->userAgent = $userAgent;
         $this->headers = $headers;
         $this->cookies = $cookies;
         $this->selector = $selector;
-        $this->format = $format;
-        $this->quality = $quality;
-        $this->prefersColorScheme = $prefersColorScheme;
-        $this->prefersReducedMotion = $prefersReducedMotion;
-        $this->cacheTtl = $cacheTtl;
-        $this->width = $width;
-        $this->height = $height;
         $this->isMobile = $isMobile;
         $this->isLandscape = $isLandscape;
         $this->hasTouch = $hasTouch;
-        $this->deviceScaleFactor = $deviceScaleFactor;
+        $this->fullPage = $fullPage;
+        $this->fullPageScroll = $fullPageScroll;
+        $this->format = $format;
+        $this->quality = $quality;
         $this->blockAds = $blockAds;
         $this->blockCookieBanners = $blockCookieBanners;
         $this->blockTrackers = $blockTrackers;
+        $this->prefersColorScheme = $prefersColorScheme;
+        $this->prefersReducedMotion = $prefersReducedMotion;
         $this->isCached = $isCached;
+        $this->cacheTtl = $cacheTtl;
         $this->bypassCsp = $bypassCsp;
+        $this->width = $width;
+        $this->height = $height;
+        $this->deviceScaleFactor = $deviceScaleFactor;
+        $this->fullPageScrollDuration = $fullPageScrollDuration;
     }
 }
